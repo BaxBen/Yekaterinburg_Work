@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -17,16 +18,9 @@ namespace RevitAppScriptRevitTS.UI
     public class SecondCommandViewModel
     {
         public ObservableCollection<ItemModel> Items { get; set; }
-        private static ExternalEvent _externalEvent;
-        private static SecondCommandEventHandler _handler;
 
-        public SecondCommandViewModel(UIApplication uiapp, SecondCommandWindow thisView, List<Dictionary<string, object>> listElement)
+        public SecondCommandViewModel(List<Dictionary<string, object>> listElement)
         {
-            //Нужно для отображения нашего окна поверх Revit
-            var revitHandle = uiapp.MainWindowHandle;
-            WindowInteropHelper helper = new WindowInteropHelper(thisView);
-            helper.Owner = revitHandle;
-            thisView.Topmost = false;
             LoadItems(listElement);
         }
 
@@ -39,7 +33,7 @@ namespace RevitAppScriptRevitTS.UI
                 {
                     int id = Convert.ToInt32(item["Id"]);
                     string xyz = item["XYZ"]?.ToString() ?? string.Empty;
-                    double distance = Convert.ToDouble(item["Distance"]); // Изменено с int на double
+                    double distance = Convert.ToDouble(item["Distance"]);
 
                     Items.Add(new ItemModel { Id = id, XYZ = xyz, Distance = distance });
                 }

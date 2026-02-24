@@ -3,21 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-        xmlns:local="clr-namespace:RevitAppScriptRevitTS.UI"
-        mc:Ignorable="d" 
+        xmlns:local="clr-namespace:RevitAppScriptRevitTS.UI.SecondCommand"
+        xmlns:vm="clr-namespace:RevitAppScriptRevitTS.UI.SecondCommand"
         Background="White"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Title="Задание 2"
-        Height="260" Width="600">
+        Height="260" Width="650">
 
-
+    
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Margin" Value="5,20,5,20"/>
+            <Setter Property="Margin" Value="0,20,0,20"/>
         </Style>
     </Window.Resources>
     <!--Colomn 1-->

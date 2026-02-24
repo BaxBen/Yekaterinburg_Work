@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|c:\\users\\sovet\\desktop\\dev\\yekaterinburg_work\\revit 22\\revitappscriptrevitts\\revitappscriptrevitts\\ui\\secondcommand\\secondcommandviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|solutionrelative:revitappscriptrevitts\\ui\\secondcommand\\secondcommandviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|c:\\users\\sovet\\desktop\\dev\\yekaterinburg_work\\revit 22\\revitappscriptrevitts\\revitappscriptrevitts\\commands\\secondcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|solutionrelative:revitappscriptrevitts\\commands\\secondcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|c:\\users\\sovet\\desktop\\dev\\yekaterinburg_work\\revit 22\\revitappscriptrevitts\\revitappscriptrevitts\\wrapper\\secondcommandeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|solutionrelative:revitappscriptrevitts\\wrapper\\secondcommandeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\revitappscriptrevitts\\commands\\secondcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|solutionrelative:revitappscriptrevitts\\commands\\secondcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|c:\\users\\sovet\\desktop\\dev\\yekaterinburg_work\\revit 22\\revitappscriptrevitts\\revitappscriptrevitts\\ui\\secondcommand\\secondcommandwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|solutionrelative:revitappscriptrevitts\\ui\\secondcommand\\secondcommandwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,56 +26,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SecondCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
-              "RelativeDocumentMoniker": "RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
-              "ToolTip": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
-              "RelativeToolTip": "RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T16:51:40.769Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "SecondCommandEventHandler.cs",
               "DocumentMoniker": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs",
               "RelativeDocumentMoniker": "RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs",
-              "ToolTip": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs*",
-              "RelativeToolTip": "RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs",
+              "RelativeToolTip": "RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwBYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-23T17:35:16.083Z",
+              "WhenOpened": "2026-02-24T05:57:18.469Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SecondCommandViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\UI\\SecondCommand\\SecondCommandViewModel.cs",
-              "RelativeDocumentMoniker": "RevitAppScriptRevitTS\\UI\\SecondCommand\\SecondCommandViewModel.cs",
-              "ToolTip": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\UI\\SecondCommand\\SecondCommandViewModel.cs",
-              "RelativeToolTip": "RevitAppScriptRevitTS\\UI\\SecondCommand\\SecondCommandViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAlAAAAAAAAAA==",
+              "Title": "SecondCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
+              "RelativeDocumentMoniker": "RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
+              "ToolTip": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
+              "RelativeToolTip": "RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAwEYAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-23T17:08:01.301Z",
+              "WhenOpened": "2026-02-24T03:59:59.575Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SecondCommandWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\UI\\SecondCommand\\SecondCommandWindow.xaml.cs",
-              "RelativeDocumentMoniker": "RevitAppScriptRevitTS\\UI\\SecondCommand\\SecondCommandWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\UI\\SecondCommand\\SecondCommandWindow.xaml.cs",
-              "RelativeToolTip": "RevitAppScriptRevitTS\\UI\\SecondCommand\\SecondCommandWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-23T17:07:54.321Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }

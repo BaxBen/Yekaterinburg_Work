@@ -9,3 +9,5 @@ C:\Users\Sovet\Desktop\Dev\Yekaterinburg_Work\REVIT 22\RevitAppScriptRevitTS\Rev
 C:\Users\Sovet\Desktop\Dev\Yekaterinburg_Work\REVIT 22\RevitAppScriptRevitTS\RevitAppScriptRevitTS\obj\Debug\RevitAppScriptRevitTS.csproj.CoreCompileInputs.cache
 C:\Users\Sovet\Desktop\Dev\Yekaterinburg_Work\REVIT 22\RevitAppScriptRevitTS\RevitAppScriptRevitTS\obj\Debug\RevitAppScriptRevitTS.dll
 C:\Users\Sovet\Desktop\Dev\Yekaterinburg_Work\REVIT 22\RevitAppScriptRevitTS\RevitAppScriptRevitTS\obj\Debug\RevitAppScriptRevitTS.pdb
+C:\Users\Sovet\Desktop\Dev\Yekaterinburg_Work\REVIT 22\RevitAppScriptRevitTS\RevitAppScriptRevitTS\obj\Debug\UI\FirstCommand\FirstCommandWindow.g.cs
+C:\Users\Sovet\Desktop\Dev\Yekaterinburg_Work\REVIT 22\RevitAppScriptRevitTS\RevitAppScriptRevitTS\obj\Debug\UI\FirstCommand\FirstCommandWindow.baml

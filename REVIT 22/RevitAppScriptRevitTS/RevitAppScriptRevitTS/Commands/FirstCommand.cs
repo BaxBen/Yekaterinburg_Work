@@ -21,8 +21,17 @@ namespace RevitAppScriptRevitTS.Commands
             UIDocument uidoc = GetUIDocument(commandData);
             Document doc = GetDocument(commandData);
 
-            //фильтр для выбора только труб
-            IList<Reference> selectedReferences = uidoc.Selection.PickObjects(ObjectType.Element, new FilterPipes());
+            IList<Reference> selectedReferences = new List<Reference>();
+
+            try 
+            {
+                //фильтр для выбора только труб
+                selectedReferences = uidoc.Selection.PickObjects(ObjectType.Element, new FilterPipes());
+            }
+            catch 
+            {
+                return Result.Succeeded;
+            }
 
             if (selectedReferences.Count == 0)
             {

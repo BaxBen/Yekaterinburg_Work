@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-1-785547404
+2-2058837374
 
-131306139292
+151618519158
 221472833707
-UI\SecondCommand\SecondCommandWindow.xaml;
+UI\FirstCommand\FirstCommandWindow.xaml;UI\SecondCommand\SecondCommandWindow.xaml;
 
 False
 
