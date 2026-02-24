@@ -4,6 +4,7 @@ using Autodesk.Revit.DB.Plumbing;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using RevitAppScriptRevitTS.Services;
+using RevitAppScriptRevitTS.UI.FirstCommand;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,8 +47,14 @@ namespace RevitAppScriptRevitTS.Commands
                 if (ArePipesConnected(selectedPipeIds, doc))
                 {
                     double pipeLengths = Math.Round(CalculatePipeLengths(selectedPipeIds, doc), 2);
-                    TaskDialog.Show("Вывод", $"Длина выбранного участка {pipeLengths} мм.");
-                    CopyToClipboard($"{pipeLengths}");
+
+                    FirstCommandWindow window = new FirstCommandWindow();
+                    FirstCommandViewModel viewModel = new FirstCommandViewModel(pipeLengths);
+                    window.DataContext = viewModel;
+                    window.Show();
+
+                    //TaskDialog.Show("Вывод", $"Длина выбранного участка {pipeLengths} мм.");
+                    //CopyToClipboard($"{pipeLengths}");
                 }
             }
 

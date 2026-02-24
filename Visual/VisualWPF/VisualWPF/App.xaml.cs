@@ -2,6 +2,7 @@
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using RevitAppScriptRevitTS.UI;
+using RevitAppScriptRevitTS.UI.FirstCommand;
 using RevitAppScriptRevitTS.UI.SecondCommand;
 using System.Collections.ObjectModel;
 using System.Configuration;
@@ -21,8 +22,8 @@ namespace VisualWPF
         {
             AddItems();
             SecondCommandWindow window = new SecondCommandWindow();
-            SecondCommandViewModel vm = new SecondCommandViewModel(_listItems);
-            window.DataContext = vm;
+            SecondCommandViewModel viewModel = new SecondCommandViewModel(_listItems);
+            window.DataContext = viewModel;
             window.ShowDialog();
         }
 

@@ -46,5 +46,7 @@
             <TextBlock Text="{Binding Items[2].XYZ, StringFormat='Координаты: {0}, '}"/>
             <TextBlock Text="{Binding Items[2].Distance, StringFormat='Расстояние: {0} m'}"/>
         </StackPanel>
+        <Border Height="45" Background="#DCDCDC">
+        </Border>
     </StackPanel>
 </Window>

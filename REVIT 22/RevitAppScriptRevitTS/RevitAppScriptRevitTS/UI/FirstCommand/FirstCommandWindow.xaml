@@ -1,13 +1,22 @@
 ﻿<Window x:Class="RevitAppScriptRevitTS.UI.FirstCommand.FirstCommandWindow"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:RevitAppScriptRevitTS.UI.FirstCommand"
-             mc:Ignorable="d" 
-             Height="250" Width="400">
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:RevitAppScriptRevitTS.UI.FirstCommand"
+        Title="Вывод" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Height="140" Width="370">
+
     <StackPanel>
-        <TextBlock Text="Длина: " Margin="20,20,20,20"/>
-        
+        <StackPanel Orientation="Horizontal" Height="60">
+            <TextBlock Foreground="#2d4d76" FontSize="16" Text="Длина выбранного участка: " Margin="20,10,0,20"/>
+            <TextBlock Foreground="#3E5F8A" FontSize="16" Text="{Binding Distance, StringFormat=' {0} mm'}" Margin="0,10,0,20"/>
+        </StackPanel >
+        <Border Height="40" Background="#DCDCDC">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Button Height="20" Width="75" Content="Копировать" Margin="0,0,15,0" HorizontalAlignment="Right" Command="{Binding CopyDistance}"/>
+            </StackPanel>
+        </Border>
     </StackPanel>
 </Window>

@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|solutionrelative:revitappscriptrevitts\\commands\\secondcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|c:\\users\\sovet\\desktop\\dev\\yekaterinburg_work\\revit 22\\revitappscriptrevitts\\revitappscriptrevitts\\wrapper\\secondcommandeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|solutionrelative:revitappscriptrevitts\\wrapper\\secondcommandeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|c:\\users\\sovet\\desktop\\dev\\yekaterinburg_work\\revit 22\\revitappscriptrevitts\\revitappscriptrevitts\\wrapper\\secondcommandeventhandlerdocumentchanged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADA58D61-123A-4986-9EBD-22AE04FD2F77}|RevitAppScriptRevitTS\\RevitAppScriptRevitTS.csproj|solutionrelative:revitappscriptrevitts\\wrapper\\secondcommandeventhandlerdocumentchanged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,17 +25,8 @@
               "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SecondCommandEventHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs",
-              "RelativeDocumentMoniker": "RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs",
-              "ToolTip": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs",
-              "RelativeToolTip": "RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandler.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAmwBYAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T05:57:18.469Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -45,14 +36,23 @@
               "RelativeDocumentMoniker": "RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
               "ToolTip": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
               "RelativeToolTip": "RevitAppScriptRevitTS\\Commands\\SecondCommand.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAAwEYAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAD4vx8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T03:59:59.575Z",
+              "WhenOpened": "2026-02-24T09:49:33.01Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SecondCommandEventHandlerDocumentChanged.cs",
+              "DocumentMoniker": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandlerDocumentChanged.cs",
+              "RelativeDocumentMoniker": "RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandlerDocumentChanged.cs",
+              "ToolTip": "C:\\Users\\Sovet\\Desktop\\Dev\\Yekaterinburg_Work\\REVIT 22\\RevitAppScriptRevitTS\\RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandlerDocumentChanged.cs",
+              "RelativeToolTip": "RevitAppScriptRevitTS\\Wrapper\\SecondCommandEventHandlerDocumentChanged.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T10:42:40.498Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -16,11 +16,11 @@ namespace RevitAppScriptRevitTS.Wrapper
     [Transaction(TransactionMode.Manual)]
     public class SecondCommandEventHandler : IExternalEventHandler
     {
-        public Element farElement { get; set; }
-        public Element nearElement { get; set; }
-        public Element selectedElement { get; set; }
-        public View activeView { get; set; }
-        public bool coloring {  get; set; }
+        public Element _farElement { get; set; }
+        public Element _nearElement { get; set; }
+        public Element _selectedElement { get; set; }
+        public View _activeView { get; set; }
+        public bool _coloring {  get; set; }
         public void Execute(UIApplication app)
         {
             UIDocument uidoc = app.ActiveUIDocument;
@@ -33,27 +33,26 @@ namespace RevitAppScriptRevitTS.Wrapper
 
                     OverrideGraphicSettings overrideSettings = new OverrideGraphicSettings();
 
-                    if (coloring)
+                    if (_coloring)
                     {
                         Color color = new Color(0, 255, 0);
                         overrideSettings.SetProjectionLineColor(color);
                         overrideSettings.SetSurfaceForegroundPatternColor(color);
                         overrideSettings.SetSurfaceBackgroundPatternColor(color);
 
-                        activeView.SetElementOverrides(selectedElement.Id, overrideSettings);
-                        activeView.SetElementOverrides(farElement.Id, overrideSettings);
-                        activeView.SetElementOverrides(nearElement.Id, overrideSettings);
+                        _activeView.SetElementOverrides(_selectedElement.Id, overrideSettings);
+                        _activeView.SetElementOverrides(_farElement.Id, overrideSettings);
+                        _activeView.SetElementOverrides(_nearElement.Id, overrideSettings);
                     }
                     else 
                     {
-                        activeView.SetElementOverrides(selectedElement.Id, overrideSettings);
-                        activeView.SetElementOverrides(farElement.Id, overrideSettings);
-                        activeView.SetElementOverrides(nearElement.Id, overrideSettings);
+                        _activeView.SetElementOverrides(_selectedElement.Id, overrideSettings);
+                        _activeView.SetElementOverrides(_farElement.Id, overrideSettings);
+                        _activeView.SetElementOverrides(_nearElement.Id, overrideSettings);
                     }
-
-                    
                     trans.Commit();
                 }
+
             }
             catch (Exception ex) 
             {
@@ -65,7 +64,7 @@ namespace RevitAppScriptRevitTS.Wrapper
 
         public string GetName()
         {
-            return "Second Command Event Handler";
+            return "Second Command EventHandler Coloring Elements";
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Autodesk.Revit.UI;
+﻿
 using RevitAppScriptRevitTS.Commands;
 using RevitAppScriptRevitTS.UI.SecondCommand;
 using RevitAppScriptRevitTS.Wrapper;
@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,9 +16,18 @@ using System.Windows.Interop;
 
 namespace RevitAppScriptRevitTS.UI
 {
-    public class SecondCommandViewModel
+    public class SecondCommandViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<ItemModel> Items { get; set; }
+        private ObservableCollection<ItemModel> _items;
+        public ObservableCollection<ItemModel> Items
+        {
+            get => _items;
+            set
+            {
+                _items = value;
+                OnPropertyChanged();
+            }
+        }
 
         public SecondCommandViewModel(List<Dictionary<string, object>> listElement)
         {
@@ -39,5 +49,13 @@ namespace RevitAppScriptRevitTS.UI
                 }
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
     }
 }
