@@ -8,6 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Height="140" Width="370">
 
+    
     <StackPanel>
         <StackPanel Orientation="Horizontal" Height="60">
             <TextBlock Foreground="#2d4d76" FontSize="16" Text="Длина выбранного участка: " Margin="20,10,0,20"/>

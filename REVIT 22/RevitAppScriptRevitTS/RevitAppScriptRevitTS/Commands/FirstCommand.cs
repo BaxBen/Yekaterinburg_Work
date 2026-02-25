@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Interop;
 
 namespace RevitAppScriptRevitTS.Commands
 {
@@ -19,6 +20,7 @@ namespace RevitAppScriptRevitTS.Commands
     {
         public override Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            UIApplication uiapp = GetUIApplication(commandData);
             UIDocument uidoc = GetUIDocument(commandData);
             Document doc = GetDocument(commandData);
 
@@ -48,13 +50,16 @@ namespace RevitAppScriptRevitTS.Commands
                 {
                     double pipeLengths = Math.Round(CalculatePipeLengths(selectedPipeIds, doc), 2);
 
+                    var revitHandle = uiapp.MainWindowHandle;
+
                     FirstCommandWindow window = new FirstCommandWindow();
                     FirstCommandViewModel viewModel = new FirstCommandViewModel(pipeLengths);
+                    WindowInteropHelper helper = new WindowInteropHelper(window);
+                    helper.Owner = revitHandle;
+                    window.Topmost = false;
+
                     window.DataContext = viewModel;
                     window.Show();
-
-                    //TaskDialog.Show("Вывод", $"Длина выбранного участка {pipeLengths} мм.");
-                    //CopyToClipboard($"{pipeLengths}");
                 }
             }
 
