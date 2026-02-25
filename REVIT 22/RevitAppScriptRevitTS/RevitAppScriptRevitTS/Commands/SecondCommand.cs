@@ -22,7 +22,6 @@ namespace RevitAppScriptRevitTS.Commands
     [Transaction(TransactionMode.ReadOnly)]
     public class SecondCommand : CommandBase
     {
-        public Document _doc;
         private static ExternalEvent _externalEventDocumentChanged;
         private static SecondCommandEventHandlerDocumentChanged _handlerDocumentChanged = new SecondCommandEventHandlerDocumentChanged();
         private static bool _isWindowOpen = false;
@@ -30,12 +29,16 @@ namespace RevitAppScriptRevitTS.Commands
 
         public override Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            if (_isWindowOpen) return Result.Cancelled;
-            _isWindowOpen = true;
-
             UIApplication uiapp = GetUIApplication(commandData);
             UIDocument uidoc = GetUIDocument(commandData);
             Document doc = GetDocument(commandData);
+
+            if (_isWindowOpen) return Result.Cancelled;
+            _isWindowOpen = true;
+
+            if (_isSubscription)
+                doc.Application.DocumentChanged += OnDocumentChanged;
+
 
             Reference reference = uidoc.Selection.PickObject(ObjectType.Element, new FilterPipeAccessory());
             Element elem = doc.GetElement(reference.ElementId);
@@ -58,10 +61,6 @@ namespace RevitAppScriptRevitTS.Commands
                 Utils.GetFarDictionary(elem, listFamilyInstance),
                 Utils.GetNearDictionary(elem, listFamilyInstance)};
 
-            _doc = doc;
-            if (_isSubscription)
-                doc.Application.DocumentChanged += OnDocumentChanged;
-
             PrintWindow(uiapp, listElement);
 
             return Result.Succeeded;
@@ -76,7 +75,7 @@ namespace RevitAppScriptRevitTS.Commands
             {
                 try
                 {
-                    _doc.Application.DocumentChanged -= OnDocumentChanged;
+                    e.GetDocument().Application.DocumentChanged -= OnDocumentChanged;
                 }
                 catch (Exception ex)
                 {
