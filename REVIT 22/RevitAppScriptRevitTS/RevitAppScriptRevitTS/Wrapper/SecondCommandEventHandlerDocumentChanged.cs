@@ -35,18 +35,27 @@ namespace RevitAppScriptRevitTS.Wrapper
         {
 
             Document doc = app.ActiveUIDocument.Document;
-
             try
             {
                 _listFamilyInstance = GetPipeAccessory(doc, _selectedElement);
-                List<Dictionary<string, object>>  listElement = new List<Dictionary<string, object>> {
-                ConvertElemenettoDictionary(_selectedElement, GetPointXYZ(_selectedElement), 0),
-                GetFarDictionary(_selectedElement),
-                GetNearDictionary(_selectedElement)};
 
-                if (_window != null)
+                _listFamilyInstance = GetPipeAccessory(doc, _selectedElement);
+                if (_listFamilyInstance.Count == 1)
                 {
-                    _window.DataContext = new SecondCommandViewModel(listElement);
+                    TaskDialog.Show("Уведомление", $"Кран в единственном экземпляре.");
+                    _window.Close();
+                }
+                else
+                {
+                    List<Dictionary<string, object>> listElement = new List<Dictionary<string, object>> {
+                        ConvertElemenettoDictionary(_selectedElement, GetPointXYZ(_selectedElement), 0),
+                        GetFarDictionary(),
+                        GetNearDictionary()};
+
+                    if (_window != null)
+                    {
+                        _window.DataContext = new SecondCommandViewModel(listElement);
+                    }
                 }
 
             }
@@ -81,15 +90,15 @@ namespace RevitAppScriptRevitTS.Wrapper
         /// <summary>
         /// Поиск самого ближнего эксземпляра и приведения его в Dictionary Id XYZ Distance
         /// </summary>
-        private Dictionary<string, object> GetNearDictionary(Element elem1)
+        private Dictionary<string, object> GetNearDictionary()
         {
             Element elem2 = null;
-            XYZ point1 = GetPointXYZ(elem1);
+            XYZ point1 = GetPointXYZ(_selectedElement);
             XYZ point2 = null;
             double distance = 0;
             foreach (var item in _listFamilyInstance)
             {
-                if (item.Id.IntegerValue == elem1.Id.IntegerValue) continue;
+                if (item.Id.IntegerValue == _selectedElement.Id.IntegerValue) continue;
 
                 point2 = GetPointXYZ(item);
                 double distance2 = point1.DistanceTo(point2);
@@ -105,22 +114,21 @@ namespace RevitAppScriptRevitTS.Wrapper
                     elem2 = item;
                 }
             }
-            //TaskDialog.Show("HANDLER", Math.Round(UnitUtils.ConvertFromInternalUnits(distance, UnitTypeId.Meters), 2).ToString());
             return ConvertElemenettoDictionary(elem2, point2, distance);
         }
 
         /// <summary>
         /// Поиск самого дальнего эксземпляра и приведения его в Dictionary Id XYZ Distance
         /// </summary>
-        private Dictionary<string, object> GetFarDictionary(Element elem1)
+        private Dictionary<string, object> GetFarDictionary()
         {
             Element elem2 = null;
-            XYZ point1 = GetPointXYZ(elem1);
+            XYZ point1 = GetPointXYZ(_selectedElement);
             XYZ point2 = null;
             double distance = 0;
             foreach (var item in _listFamilyInstance)
             {
-                if (item.Id.IntegerValue == elem1.Id.IntegerValue) continue;
+                if (item.Id.IntegerValue == _selectedElement.Id.IntegerValue) continue;
                 point2 = GetPointXYZ(item);
                 double distance2 = point1.DistanceTo(point2);
 

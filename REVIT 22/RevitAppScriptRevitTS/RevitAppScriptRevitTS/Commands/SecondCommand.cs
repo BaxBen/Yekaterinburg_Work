@@ -51,6 +51,7 @@ namespace RevitAppScriptRevitTS.Commands
             if (_listFamilyInstance.Count == 1)
             {
                 TaskDialog.Show("Уведомление", $"Кран в единственном экземпляре.");
+                _isWindowOpen = false;
                 return Result.Succeeded;
             }
 
