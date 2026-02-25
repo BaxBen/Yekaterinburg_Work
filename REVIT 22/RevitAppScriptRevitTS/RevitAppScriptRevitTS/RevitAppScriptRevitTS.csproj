@@ -85,6 +85,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FilterPipeAccessory.cs" />
     <Compile Include="Services\FilterPipes.cs" />
+    <Compile Include="Services\Utils.cs" />
     <Compile Include="UI\FirstCommand\FirstCommandRelayCommand.cs" />
     <Compile Include="UI\FirstCommand\FirstCommandViewModel.cs" />
     <Compile Include="UI\FirstCommand\FirstCommandWindow.xaml.cs">

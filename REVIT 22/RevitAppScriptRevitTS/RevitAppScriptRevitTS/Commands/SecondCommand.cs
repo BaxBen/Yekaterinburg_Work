@@ -4,6 +4,7 @@ using Autodesk.Revit.DB.Events;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using RevitAppScriptRevitTS.Services;
+using RevitAppScriptRevitTS.Services.SecondCommand;
 using RevitAppScriptRevitTS.UI;
 using RevitAppScriptRevitTS.Wrapper;
 using System;
@@ -21,13 +22,10 @@ namespace RevitAppScriptRevitTS.Commands
     [Transaction(TransactionMode.ReadOnly)]
     public class SecondCommand : CommandBase
     {
-        public static List<FamilyInstance> _listFamilyInstance;
-        public List<Dictionary<string, object>> _listElement;
+        public Document _doc;
         private static ExternalEvent _externalEventDocumentChanged;
         private static SecondCommandEventHandlerDocumentChanged _handlerDocumentChanged = new SecondCommandEventHandlerDocumentChanged();
-        public Document _doc;
         private static bool _isWindowOpen = false;
-        public Element _elem;
         public bool _isSubscription = true;
 
         public override Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
@@ -40,31 +38,31 @@ namespace RevitAppScriptRevitTS.Commands
             Document doc = GetDocument(commandData);
 
             Reference reference = uidoc.Selection.PickObject(ObjectType.Element, new FilterPipeAccessory());
-            _elem = doc.GetElement(reference.ElementId);
+            Element elem = doc.GetElement(reference.ElementId);
 
             //
-            _handlerDocumentChanged._selectedElement = _elem;
+            _handlerDocumentChanged._selectedElement = elem;
             _externalEventDocumentChanged = ExternalEvent.Create(_handlerDocumentChanged);
             //
 
-            _listFamilyInstance = GetPipeAccessory(doc, _elem);
-            if (_listFamilyInstance.Count == 1)
+            List<FamilyInstance>  listFamilyInstance = Utils.GetPipeAccessory(doc, elem);
+            if (listFamilyInstance.Count == 1)
             {
                 TaskDialog.Show("Уведомление", $"Кран в единственном экземпляре.");
                 _isWindowOpen = false;
                 return Result.Succeeded;
             }
 
-            _listElement = new List<Dictionary<string, object>> {
-                ConvertElemenettoDictionary(_elem, GetPointXYZ(_elem), 0),
-                GetFarDictionary(),
-                GetNearDictionary()};
+            List<Dictionary<string, object>>  listElement = new List<Dictionary<string, object>> {
+                Utils.ConvertElemenetToDictionary(elem, Utils.GetPointXYZ(elem), 0),
+                Utils.GetFarDictionary(elem, listFamilyInstance),
+                Utils.GetNearDictionary(elem, listFamilyInstance)};
 
             _doc = doc;
             if (_isSubscription)
                 doc.Application.DocumentChanged += OnDocumentChanged;
 
-            PrintWindow(uiapp);
+            PrintWindow(uiapp, listElement);
 
             return Result.Succeeded;
         }
@@ -90,39 +88,6 @@ namespace RevitAppScriptRevitTS.Commands
         }
 
         /// <summary>
-        /// Отображает модальное окно команды, устанавливая его владельцем главное окно Revit
-        /// </summary>
-        private void PrintWindow(UIApplication uiapp)
-        {
-            var revitHandle = uiapp.MainWindowHandle;
-
-            var window = new SecondCommandWindow();
-            var viewModel = new SecondCommandViewModel(_listElement);
-            _handlerDocumentChanged._window = window;
-            WindowInteropHelper helper = new WindowInteropHelper(window);
-            helper.Owner = revitHandle;
-            window.Topmost = false;
-            viewModel = new SecondCommandViewModel(_listElement);
-            window.DataContext = viewModel;
-            window.Show();
-            window.Closed += (s, e) => OnClosed(false);
-        }
-
-        /// <summary>
-        /// Сбор всех экземпляров семейств трубопроводной арматуры имеющих тот же тип, что и указанный элемент
-        /// </summary>
-        public static List<FamilyInstance> GetPipeAccessory(Document doc, Element elem)
-        {
-            List<FamilyInstance> list_Levels = new FilteredElementCollector(doc)
-                .OfCategory(BuiltInCategory.OST_PipeAccessory)
-                .WhereElementIsNotElementType()
-                .Cast<FamilyInstance>().Where(x => x.GetTypeId().IntegerValue == elem.GetTypeId().IntegerValue)
-                .ToList();
-
-            return list_Levels;
-        }
-
-        /// <summary>
         /// Обрабатывает событие закрытия окна и обновляет состояние флагов подписки и открытого окна
         /// </summary>
         private void OnClosed(bool param)
@@ -132,84 +97,22 @@ namespace RevitAppScriptRevitTS.Commands
         }
 
         /// <summary>
-        /// Поиск самого ближнего эксземпляра и приведения его в Dictionary Id XYZ Distance
+        /// Отображает модальное окно команды, устанавливая его владельцем главное окно Revit
         /// </summary>
-        private Dictionary<string, object> GetNearDictionary()
+        private void PrintWindow(UIApplication uiapp, List<Dictionary<string, object>> listElement)
         {
-            Element elem2 = null;
-            XYZ point1 = GetPointXYZ(_elem);
-            XYZ point2 = null;
-            double distance = 0;
-            foreach (var item in _listFamilyInstance)
-            {
-                if (item.Id.IntegerValue == _elem.Id.IntegerValue) continue;
+            var revitHandle = uiapp.MainWindowHandle;
 
-                point2 = GetPointXYZ(item);
-                double distance2 = point1.DistanceTo(point2);
-
-                if (elem2 == null)
-                {
-                    elem2 = item;
-                    distance = distance2;
-                }
-                else if (distance > distance2)
-                {
-                    distance = distance2;
-                    elem2 = item;
-                }
-            }
-            return ConvertElemenettoDictionary(elem2, point2, distance);
-        }
-
-        /// <summary>
-        /// Поиск самого дальнего эксземпляра и приведения его в Dictionary Id XYZ Distance
-        /// </summary>
-        private Dictionary<string, object> GetFarDictionary()
-        {
-            Element elem2 = null;
-            XYZ point1 = GetPointXYZ(_elem);
-            XYZ point2 = null;
-            double distance = 0;
-            foreach (var item in _listFamilyInstance)
-            {
-                if (item.Id.IntegerValue == _elem.Id.IntegerValue) continue;
-                point2 = GetPointXYZ(item);
-                double distance2 = point1.DistanceTo(point2);
-
-                if (elem2 == null)
-                {
-                    elem2 = item;
-                    distance = distance2;
-                }
-                else if (distance < distance2)
-                {
-                    distance = distance2;
-                    elem2 = item;
-                }
-            }
-            return ConvertElemenettoDictionary(elem2, point2, distance);
-        }
-
-        /// <summary>
-        /// Конвертирование входных данных в Dictionary Id XYZ Distance
-        /// </summary>
-        private Dictionary<string, object> ConvertElemenettoDictionary(Element elem, XYZ point, double distance)
-        {
-            return new Dictionary<string, object>
-            {
-                ["Id"] = elem.Id.IntegerValue,
-                ["XYZ"] = $"X: {point.X:F3} Y: {point.Y:F3} Z: {point.Z:F3}",
-                ["Distance"] = Math.Round(UnitUtils.ConvertFromInternalUnits(distance, UnitTypeId.Meters), 2)
-            };
-        }
-
-        /// <summary>
-        /// Возвращает XYZ
-        /// </summary>
-        private XYZ GetPointXYZ(Element elem)
-        {
-            LocationPoint locationPoint = elem.Location as LocationPoint;
-            return locationPoint.Point;
+            var window = new SecondCommandWindow();
+            var viewModel = new SecondCommandViewModel(listElement);
+            _handlerDocumentChanged._window = window;
+            WindowInteropHelper helper = new WindowInteropHelper(window);
+            helper.Owner = revitHandle;
+            window.Topmost = false;
+            viewModel = new SecondCommandViewModel(listElement);
+            window.DataContext = viewModel;
+            window.Show();
+            window.Closed += (s, e) => OnClosed(false);
         }
     }
 }
